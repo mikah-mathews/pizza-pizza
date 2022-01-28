@@ -28,5 +28,6 @@ $(document).ready(function() {
       userToppings.push($(this).val());
     });
     console.log(userToppings);
-  })  
-})
+  });  
+});
+

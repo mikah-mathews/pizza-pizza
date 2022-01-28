@@ -26,6 +26,7 @@ _This is a page where you are able to select toppings, size, and delivery option
 * _None currently but if found, please contact me at mikah@outofband.org_
 
 ## Tests
+
 Describe: Pizza()
 
 Test: "It should return a pizza object with two properties for toppings and size"
