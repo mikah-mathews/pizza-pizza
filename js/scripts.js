@@ -17,6 +17,5 @@ Pizza.prototype.price = function(order) {
 }
 
 let newPizza = new Pizza(["pepperoni", "pineapple"], "small");
-let size = newPizza
 console.log(newPizza);
 console.log(newPizza.price("small"));
