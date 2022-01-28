@@ -6,7 +6,7 @@ function Pizza(toppings, size) {
 Pizza.prototype.price = function(order) {
   if (order === "small") {
     console.log("10");
-    return 10;5 
+    return 10;
   } else if (order === "medium") {
     console.log("12")
     return 12;
