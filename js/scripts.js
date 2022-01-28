@@ -3,5 +3,7 @@ function Pizza(toppings, size) {
   this.size = size;
 }
 
+
+
 let newPizza = new Pizza(["pepperoni", "pineapple"], "small");
 console.log(newPizza);

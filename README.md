@@ -32,6 +32,13 @@ Test: "It should return a pizza object with two properties for toppings and size
 Code: const myPizza = new Pizza(["pineapple", "pepperoni"], "small");
 Expected Output: Pizza { toppings: ["pineapple", "pepperoni"], size: "small"}
 
+Describe: Pizza.price();
+
+Test: "It should determine price by size. Small is $10"
+Code: const myPizza = new Pizza(["pineapple", "pepperoni"], "small");
+      myPizza.price();
+Expected Output: 10
+
 ## License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
