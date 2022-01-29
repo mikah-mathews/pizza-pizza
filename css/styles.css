@@ -1,0 +1,8 @@
+body {
+  cursor: url('my-mouse-pointer.cur'),auto;
+}
+
+.container :hover {
+  cursor: url('my-mouse-pointer.cur'),auto;
+}
+
