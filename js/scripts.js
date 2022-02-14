@@ -1,28 +1,39 @@
 // Backend logic
-function Pizza(toppings, size) {
+function Pizza(toppings, size, price) {
   this.toppings = toppings;
   this.size = size;
+  this.price = price;
 }
-
-let price = 0;
 
 Pizza.prototype.sizePrice = function(order) {
   if (order === "small") {
-    price = 10;
+    this.price += 10;
   } else if (order === "medium") {
-    price = 12;
+    this.price += 12;
   } else if (order === "large") {
-    price = 15;
+    this.price += 15;
+  } else {
+    return "There was an error with size price"
   }
 }
 
 Pizza.prototype.toppingsPrice = function(toppings) {
   if(toppings > 0) {
-    price = price + (toppings * .50);
-    return price;
+    this.price += (toppings * .50);
+    return this.price;
   } else {
-    alert("Select at least one topping");
+    return "There was an error with toppings price"
   }
+}
+
+let getToppings = function() {
+  let userToppings = [];
+  $(`input:checkbox[name='topping']:checked`).each(function(){
+    userToppings.push(" " + $(this).val() + " ");
+  });
+  let toppingLength = userToppings.length;
+  return toppingLength;
+  
 }
 
 // UI logic
@@ -32,16 +43,23 @@ $(document).ready(function() {
     $("#toppingsOutput").empty();
     $("#finalPrice").empty();
     let userSize = $("input:radio[name=size]:checked").val();
-    let userToppings = [];
-    $("input:checkbox[name='topping']:checked").each(function(){
-      userToppings.push(" " + $(this).val() + " ");
-    });  // Could this be refactored as it's own function to be called?
-    let userPizza = new Pizza(userToppings, userSize);
-    let toppingsPrice = userPizza.toppingsPrice(userToppings.length);
-    let sizePrice = userPizza.sizePrice(userSize);
-    $("#toppingsOutput").append("The size selected is " + sizePrice + ". The toppings selected are: " + userToppings + ". and the price of toppings is" + toppingsPrice + ".");
-    $("#finalPrice").append("$" + price);
-    $('input[type="checkbox"]').prop('checked', false);
+    let userToppings = getToppings();
+    if (userToppings != 0) {
+      let userPizza = new Pizza(userToppings, userSize, 0);
+      userPizza.toppingsPrice(userToppings);
+      userPizza.sizePrice(userSize);
+      $("#finalPrice").append("$" + userPizza.price);
+      $('input[type="checkbox"]').prop('checked', false);
+      $("#results").show();
+      $("#pizza-builder").hide();
+    } else {
+      alert("You must select at least one topping");
+    }
   });  
+
+  $("#new-order").on('click', function() {
+    $("#results").hide();
+    $("#pizza-builder").show();
+  })
 });
 

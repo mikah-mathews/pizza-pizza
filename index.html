@@ -10,21 +10,22 @@
     <title>Pizza Pizza Pizzeria</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Build a Pizza to Order from Us!</h1>
+    <div class="container">      
       <form id="pizza-builder">
+        <h1>Build a Pizza to Order from Us!</h1>
         <h4>Pick a size</h4>
         <div class="form-group" id="pizza-size">
-          <input type="radio" name="size" id="small" value="small">
-          <label for="small">Small</label>
+          <input type="radio" name="size" id="small" value="small" required>
+          <label for="small">Small - $10</label>
           <input type="radio" name="size" id="medium" value="medium">
-          <label for="medium">Medium</label>
+          <label for="medium">Medium - $12</label>
           <input type="radio" name="size" id="large" value="large">
-          <label for="large">Large</label>
+          <label for="large">Large - $15</label>
         </div>
+        <h4>Pick your toppings - 50¢/topping, minimum of 1 required</h4>
         <div class="form-group" id="toppings">
           <input type="checkbox" name="topping" id="cheese" value="cheese">
-          <label for="cheese">Cheese</label>
+          <label for="cheese">Extra Cheese</label>
           <input type="checkbox" name="topping" id="pepperoni" value="pepperoni">
           <label for="pepperoni">Pepperoni</label>
           <input type="checkbox" name="topping" id="bellpepper" value="bellpepper">
@@ -38,12 +39,11 @@
         </div>
         <button type="submit">Order Pizza</button>
       </form>
-      <div class="results">
-        <h3>Here are the toppings you selected: </h3>
-        <p id="toppingsOutput"></p>
+      <div id="results">
         <h3>Here is your total cost!</h3>
         <p id="finalPrice"></p>
         <p>Thanks for buying our pizza</p>
+        <button id="new-order">Order a new Pizza</button>
       </div>
     </div>
   </body>

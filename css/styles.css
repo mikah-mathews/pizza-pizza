@@ -10,3 +10,6 @@ html, body {
   cursor: url('my-mouse-pointer.cur'),auto;
 }
 
+#results {
+  display: none;
+}
