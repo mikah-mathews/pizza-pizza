@@ -26,6 +26,8 @@ Pizza.prototype.toppingsPrice = function(toppings) {
   }
 }
 
+// UI logic
+
 let getToppings = function() {
   let userToppings = [];
   $(`input:checkbox[name='topping']:checked`).each(function(){
@@ -36,11 +38,10 @@ let getToppings = function() {
   
 }
 
-// UI logic
 $(document).ready(function() {
   $("#pizza-builder").submit(function(event) {
-    $(".error").hide();
     event.preventDefault();
+    $(".error").hide();
     $("#toppingsOutput").empty();
     $("#finalPrice").empty();
     let userSize = $("input:radio[name=size]:checked").val();
