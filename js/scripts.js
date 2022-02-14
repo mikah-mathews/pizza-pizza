@@ -39,6 +39,7 @@ let getToppings = function() {
 // UI logic
 $(document).ready(function() {
   $("#pizza-builder").submit(function(event) {
+    $(".error").hide();
     event.preventDefault();
     $("#toppingsOutput").empty();
     $("#finalPrice").empty();
@@ -53,7 +54,7 @@ $(document).ready(function() {
       $("#results").show();
       $("#pizza-builder").hide();
     } else {
-      alert("You must select at least one topping");
+      $(".error").show();
     }
   });  
 
